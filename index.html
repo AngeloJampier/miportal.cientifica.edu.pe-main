@@ -7,29 +7,23 @@
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: PublicSans;;
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
         }
         .navbar {
-            background-color: #003366;
+            background-color: #22468f ;
             color: #fff;
-            padding: 10px 20px;
-            position: sticky;
+            padding: 20px;
+            position: fixed;
             top: 0;
-            width: 100%;
+            left: 0;
+            right: 0;
             z-index: 1000;
-            box-sizing: border-box;
-        }
-        .navbar .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
             width: 100%;
+            box-sizing: border-box;
+            text-align: center;
         }
         .navbar .logo {
             font-size: 1.5em;
@@ -37,25 +31,22 @@
             color: #fff;
             text-decoration: none;
         }
-        .navbar .menu-toggle {
-            background: none;
-            border: none;
-            color: #fff;
-            font-size: 1.5em;
-            cursor: pointer;
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px 20px;
+            box-sizing: border-box;
         }
         .header {
-            text-align: center;
-            background-color: #00509e;
-            color: #fff;
-            padding: 20px 10px;
+            color: #22468f ;
+            padding: 20px;
         }
         .header h1 {
             margin: 0;
             font-size: 2.5em;
         }
         .header h2 {
-            margin: 10px 0 0;
+            margin: 10px 0;
             font-size: 1.5em;
             font-weight: normal;
         }
@@ -64,9 +55,7 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 15px;
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
+            padding: 20px 0;
         }
         .summary .card {
             background-color: #fff;
@@ -92,9 +81,7 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 15px;
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
+            padding: 20px 0;
         }
         .credits-section {
             background-color: #fff;
@@ -111,18 +98,18 @@
         .curricular-plan, .requirements {
             padding: 20px;
             background-color: #fff;
-            margin: 20px auto;
+            margin: 20px 0;
             border-radius: 8px;
-            max-width: 1200px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        .curricular-plan h3 {
+        .curricular-plan h3, .requirements h3 {
             color: #003366;
             margin-bottom: 15px;
         }
         .cycles {
             display: flex;
-            justify-content: center;
+            flex-wrap: nowrap;
+            overflow-x: auto;
             gap: 10px;
             margin-bottom: 20px;
         }
@@ -133,6 +120,8 @@
             color: #fff;
             border-radius: 5px;
             cursor: pointer;
+            min-width: 120px;
+            text-align: center;
         }
         .cycle-btn:hover {
             background-color: #003366;
@@ -141,7 +130,6 @@
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 20px;
-            min-width: 600px;
         }
         table th, table td {
             border: 1px solid #ccc;
@@ -151,15 +139,12 @@
         table th {
             background-color: #f4f4f4;
         }
-        .requirements h3 {
-            color: #003366;
-        }
-
-        /* Scrollable table */
         .scrollable-table {
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
-            display: block;
+        }
+        .table-container {
+            padding: 0 15px;
         }
 
         @media (max-width: 768px) {
@@ -170,158 +155,257 @@
                 flex: 1 1 100%;
                 max-width: none;
             }
-            .curricular-plan, .requirements {
-                padding: 10px;
+            .cycles {
+                flex-wrap: wrap;
+                justify-content: center;
             }
-        }
-
-        @media (max-width: 480px) {
-            .curricular-plan {
-                padding: 10px;
+            .cycle-btn {
+                min-width: 90px;
             }
         }
     </style>
 </head>
 <body>
     <nav class="navbar">
-        <div class="container">
-            <a href="#" class="logo">Universidad Científica</a>
-            <button class="menu-toggle">☰</button>
-        </div>
+        <a href="#" class="logo">Universidad Científica</a>
     </nav>
 
-    <header class="header">
-        <h1>Resumen Académico</h1>
-        <h2>Medicina Humana</h2>
-    </header>
+    <div class="main-container">
+        <header class="header">
+            <h1>Resumen Académico</h1>
+            <h2>Medicina Humana</h2>
+        </header>
 
-    <section class="summary">
-        <div class="card">
-            <h3>13.43</h3>
-            <p>Promedio Ponderado Acumulado</p>
-        </div>
-        <div class="card">
-            <h3>136</h3>
-            <p>Total de Créditos Aprobados</p>
-        </div>
-        <div class="card">
-            <h3>-</h3>
-            <p>Nivel de Inglés Actual</p>
-        </div>
-        <div class="card">
-            <h3>A2</h3>
-            <p>Nivel de Inglés Requerido</p>
-        </div>
-    </section>
+        <section class="summary">
+            <div class="card">
+                <h3>13.43</h3>
+                <p>Promedio Ponderado Acumulado</p>
+            </div>
+            <div class="card">
+                <h3>136</h3>
+                <p>Total de Créditos Aprobados</p>
+            </div>
+            <div class="card">
+                <h3>-</h3>
+                <p>Nivel de Inglés Actual</p>
+            </div>
+            <div class="card">
+                <h3>A2</h3>
+                <p>Nivel de Inglés Requerido</p>
+            </div>
+        </section>
 
-    <section class="credits">
-        <div class="credits-section">
-            <h3>Créditos Obligatorios</h3>
-            <p>Créditos Aprobados: 130</p>
-            <p>Créditos Requeridos: 295</p>
-        </div>
-        <div class="credits-section">
-            <h3>Créditos Electivos</h3>
-            <p>Créditos Aprobados: -</p>
-            <p>Créditos Requeridos: -</p>
-        </div>
-    </section>
+        <section class="credits">
+            <div class="credits-section">
+                <h3>Créditos Obligatorios</h3>
+                <p>• Créditos Aprobados: 130</p>
+                <p>• Créditos Requeridos: 295</p>
+                <p>• Porcentaje de Avance: 44.7%</p>
+            </div>
+            <div class="credits-section">
+                <h3>Créditos Electivos</h3>
+                <p>• Créditos Aprobados: 6</p>
+                <p>• Créditos Requeridos: 10</p>
+                <p>• Porcentaje de Avance: 60%</p>
+            </div>
+        </section>
 
-    <section class="curricular-plan">
-        <h3>Plan Curricular</h3>
-        <div class="cycles">
-            <button class="cycle-btn" data-cycle="1">Ciclo 01</button>
-            <button class="cycle-btn" data-cycle="2">Ciclo 02</button>
-            <button class="cycle-btn" data-cycle="3">Ciclo 03</button>
-            <button class="cycle-btn" data-cycle="4">Ciclo 04</button>
-            <button class="cycle-btn" data-cycle="5">Ciclo 05</button>
-            <button class="cycle-btn" data-cycle="6">Ciclo 06</button>
-            <button class="cycle-btn" data-cycle="7">Ciclo 07</button>
-            <button class="cycle-btn" data-cycle="8">Ciclo 08</button>
-            <button class="cycle-btn" data-cycle="9">Ciclo 09</button>
-            <button class="cycle-btn" data-cycle="10">Ciclo 10</button>
-        </div>
-        <div class="scrollable-table">
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Curso</th>
-                        <th>Descripción</th>
-                        <th>Créditos</th>
-                        <th>Nota</th>
-                        <th>Pre Requisitos</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>667232</td>
-                        <td>Metodología De La Inv. Científ</td>
-                        <td>Semest Pregrad Regular 2020-2</td>
-                        <td>2</td>
-                        <td>16</td>
-                        <td><a href="#">Ver</a></td>
-                    </tr>
-                </tbody>
-            </table>
-            <h4>Cursos Electivos</h4>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Curso</th>
-                        <th>Descripción</th>
-                        <th>Créditos</th>
-                        <th>Nota</th>
-                        <th>Pre Requisitos</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Primeros Auxilios (E)</td>
-                        <td>Semest Pregrad Regular 2021-1</td>
-                        <td>2</td>
-                        <td>15</td>
-                        <td><a href="#">Ver</a></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
+        <section class="curricular-plan">
+            <h3>Plan Curricular</h3>
+            <div class="cycles">
+                <button class="cycle-btn">Ciclo 01 </button>
+                <button class="cycle-btn">Ciclo 02 </button>
+                <button class="cycle-btn">Ciclo 03 </button>
+                <button class="cycle-btn">Ciclo 04</button>
+                <button class="cycle-btn">Ciclo 05 </button>
+                <button class="cycle-btn">Ciclo 06 </button>
+                <button class="cycle-btn">Ciclo 07 </button>
+                <button class="cycle-btn">Ciclo 08 </button>
+                <button class="cycle-btn">Ciclo 09 </button>
+                <button class="cycle-btn">Ciclo 10 </button>
+                <button class="cycle-btn">Ciclo 11 </button>
+                <button class="cycle-btn">Ciclo 12 </button>
+            </div>
+            <div class="table-container">
+                <div class="scrollable-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Curso</th>
+                                <th>Descripción</th>
+                                <th>Créditos</th>
+                                <th>Nota</th>
+                                <th>Pre Requisitos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>• 666904</td>
+                                <td>Psicol Aplicada a la Medicina</td>
+                                <td>Semest Pregrad Regular 2020-2</td>
+                                <td>3</td>
+                                <td>18</td>
+                                <td><a href="#">Ver</a></td>
+                            </tr>
+                            <tr>
+                                <td>• 666906</td>
+                                <td>Medicina I</td>
+                                <td>Semest Pregrad Regular 2024-1</td>
+                                <td>7</td>
+                                <td>13</td>
+                                <td><a href="#">Ver</a></td>
+                            </tr>
+                            <tr>
+                                <td>• 001035</td>
+                                <td>Imagenologia Medica</td>
+                                <td>Semest Pregrad Regular 2024-1</td>
+                                <td>2</td>
+                                <td>14</td>
+                                <td><a href="#">Ver</a></td>
+                            </tr>
+                            <tr>
+                                <td>• 666905</td>
+                                <td>Epidemiologia</td>
+                                <td>Semest Pregrad Regular 2021-1</td>
+                                <td>3</td>
+                                <td>13</td>
+                                <td><a href="#">Ver</a></td>
+                            </tr>
+                            <tr>
+                                <td>• 666903</td>
+                                <td>Anatomia Patologica II</td>
+                                <td>Semest Pregrad Regular 2024-2</td>
+                                <td>2</td>
+                                <td>13</td>
+                                <td><a href="#">Ver</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
 
-    <section class="requirements">
-        <h3>Requisitos</h3>
-        <div class="requirement-section">
-            <h4>Condiciones de Bachiller</h4>
-            <table>
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Requerido</th>
-                        <th>Logro</th>
-                        <th>Avance</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Trabajo De Investigación</td>
-                        <td>Sí</td>
-                        <td>No</td>
-                        <td>No Cumplió</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
+        <section>
+            <div class="table-container">
+                <div class="scrollable-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Cursos Electivos</th>
+                                <th>Descripción</th>
+                                <th>Créditos</th>
+                                <th>Nota</th>
+                                <th>Pre Requisitos</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>• Primeros Auxilios (E)</td>
+                                <td>Semest Pregrad Regular 2021-1</td>
+                                <td>2</td>
+                                <td>15</td>
+                                <td><a href="#">Ver</a></td>
+                            </tr>
+                            <tr>
+                                <td>• Nutricion</td>
+                                <td></td>
+                                <td>2</td>
+                                <td>---</td>
+                                <td><a href="#">Ver</a></td>
+                            </tr>
+                            <tr>
+                                <td>• Informatica Biomedica</td>
+                                <td></td>
+                                <td>2</td>
+                                <td>---</td>
+                                <td><a href="#">Ver</a></td>
+                            </tr>
+                            <tr>
+                                <td>• Gestion del Riesgo de Desastre</td>
+                                <td></td>
+                                <td>2</td>
+                                <td>---</td>
+                                <td><a href="#">Ver</a></td>
+                            </tr>
+                            <tr>
+                                <td>• Gestion de Proyectos en Salud</td>
+                                <td></td>
+                                <td>2</td>
+                                <td>---</td>
+                                <td><a href="#">Ver</a></td>
+                            </tr>
+                            <tr>
+                                <td>• Farmaco Aplicada a Terapeutica</td>
+                                <td></td>
+                                <td>2</td>
+                                <td>---</td>
+                                <td><a href="#">Ver</a></td>
+                            </tr>
+                            <tr>
+                                <td>• Equinoterapia</td>
+                                <td>Semest Pregrad Regular 2023-2</td>
+                                <td>2</td>
+                                <td>13</td>
+                                <td><a href="#">Ver</a></td>
+                            </tr>
+                            <tr>
+                                <td>• Auditoria Medica</td>
+                                <td></td>
+                                <td>2</td>
+                                <td>---</td>
+                                <td><a href="#">Ver</a></td>
+                            </tr>
+                            <tr>
+                                <td>• Agilidad en Salud Digital</td>
+                                <td></td>
+                                <td>2</td>
+                                <td>---</td>
+                                <td><a href="#">Ver</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const menuToggle = document.querySelector('.menu-toggle');
-            const navbar = document.querySelector('.navbar');
-
-            menuToggle.addEventListener('click', () => {
-                navbar.classList.toggle('expanded');
-            });
-        });
-    </script>
+        </section>
+        <section class="requirements">
+            <h3>Requisitos</h3>
+            <div class="requirement-section">
+                <h4>Condiciones de Bachiller</h4>
+                <h4>Condiciones de Egresado</h4>
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Requerido</th>
+                            <th>Logro</th>
+                            <th>Avance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>• Trabajo de Investigación</td>
+                            <td>Si</td>
+                            <td>No</td>
+                            <td>No Cumplió</td>
+                        </tr>
+                        <tr>
+                            <td>• Nivel De Inglés</td>
+                            <td>A1 A2 B1 B2</td>
+                            <td></td>
+                            <td>0%</td>
+                        </tr>
+                        <tr>
+                            <td>• Trabajo de Investigación</td>
+                            <td></td>
+                            <td></td>
+                            <td>0%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
 </body>
 </html>
