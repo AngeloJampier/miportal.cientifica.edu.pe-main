@@ -20,11 +20,16 @@
             top: 0;
             width: 100%;
             z-index: 1000;
+            box-sizing: border-box;
         }
         .navbar .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
         }
         .navbar .logo {
             font-size: 1.5em;
@@ -60,6 +65,8 @@
             justify-content: center;
             gap: 15px;
             padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         .summary .card {
             background-color: #fff;
@@ -69,6 +76,7 @@
             text-align: center;
             flex: 1 1 calc(25% - 20px);
             max-width: 200px;
+            min-width: 150px;
         }
         .summary .card h3 {
             margin: 0;
@@ -85,6 +93,8 @@
             justify-content: center;
             gap: 15px;
             padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         .credits-section {
             background-color: #fff;
@@ -98,14 +108,13 @@
             margin: 0;
             color: #003366;
         }
-        .curricular-plan {
+        .curricular-plan, .requirements {
             padding: 20px;
             background-color: #fff;
             margin: 20px auto;
             border-radius: 8px;
-            max-width: 100%;
+            max-width: 1200px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            overflow-x: auto;
         }
         .curricular-plan h3 {
             color: #003366;
@@ -142,16 +151,15 @@
         table th {
             background-color: #f4f4f4;
         }
-        .requirements {
-            padding: 20px;
-            background-color: #fff;
-            margin: 20px auto;
-            border-radius: 8px;
-            max-width: 100%;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
         .requirements h3 {
             color: #003366;
+        }
+
+        /* Scrollable table */
+        .scrollable-table {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            display: block;
         }
 
         @media (max-width: 768px) {
@@ -162,9 +170,8 @@
                 flex: 1 1 100%;
                 max-width: none;
             }
-            table {
-                display: block;
-                overflow-x: auto;
+            .curricular-plan, .requirements {
+                padding: 10px;
             }
         }
 
@@ -234,7 +241,7 @@
             <button class="cycle-btn" data-cycle="9">Ciclo 09</button>
             <button class="cycle-btn" data-cycle="10">Ciclo 10</button>
         </div>
-        <div class="cycle-content" id="cycle-5">
+        <div class="scrollable-table">
             <table>
                 <thead>
                     <tr>
