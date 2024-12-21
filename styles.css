@@ -1,0 +1,431 @@
+body {
+    font-family: PublicSans;;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+.navbar {
+    background-color: #22468f;
+    color: #fff;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .navbar input {
+    display: none;
+  }
+  .navbar .fas {
+    display: block; /* Mostramos el icono de la hamburguesa */
+    font-size: 24px;
+    cursor: pointer;
+  }
+  .navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #f4f4f4;
+    height: 0;
+    overflow: hidden;
+    transition: height 0.5s ease-in-out;
+    display: none;
+  }
+  
+  .navbar li {
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .navbar li:last-child {
+    border-bottom: none;
+  }
+  input[type="checkbox"]:checked ~ ul { /* Corrección aquí */
+    height: auto;
+  }
+  .navbar input:checked ~ ul {
+    height: auto;
+  }
+  .show {
+    display: block; /* O flex, dependiendo de tu diseño */
+  }
+  /* Estilos para pantallas grandes */
+@media (min-width: 768px) {
+    .navbar ul {
+      position: static;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      background: none;
+      height: auto;
+      overflow: visible;
+      display: none;
+    }
+  
+    .navbar .fas {
+      display: none;
+    }
+  }
+.navbar .logo {
+    display: block;
+    margin: 0 auto;
+    max-width: 150px;
+    
+}
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 20px 20px;
+    box-sizing: border-box;
+}
+.header {
+    color: #22468f ;
+    padding: 20px;
+}
+.header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+.header h2 {
+    margin: 10px 0;
+    font-size: 1.5em;
+    font-weight: normal;
+}
+.summary {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px 0;
+}
+.summary .card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    flex: 1 1 calc(25% - 20px);
+    max-width: 200px;
+    min-width: 150px;
+}
+.summary .card h3 {
+    margin: 0;
+    font-size: 2em;
+    color: #003366;
+}
+.summary .card p {
+    margin: 5px 0 0;
+    color: #555;
+}
+.credits {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    padding: 20px 0;
+}
+/* Estilos de navegación */
+.credits-navigation {
+    display: flex;
+    border-bottom: 2px solid #e0e0e0;
+    margin-bottom: 10px;
+}
+
+/* Créditos navegación como texto */
+.credits-navigation p {
+    flex: 1;
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #6c757d;
+    transition: color 0.3s ease, border-color 0.3s ease;
+}
+.credits-navigation p:hover {
+    color: #007bff; /* Color al pasar el ratón */
+}
+.credits-navigation p.inserted-active {
+    color: #007bff; /* Azul para el texto activo */
+    border-bottom: 2px solid #007bff; /* Indicador visual activo */
+}
+.credits-content {
+    display: none; /* Oculta todas las secciones inicialmente */
+}
+.credits-content.active {
+    display: block; /* Muestra solo la sección activa */
+}
+p strong {
+    background-color: #f8f9fa;
+    padding: 2px 5px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    color: #343a40;
+}
+
+.curricular-plan {
+    text-align: center;
+    padding: 20px;
+}
+.curricular-plan h3 {
+    text-align: left;
+    padding: 0;
+}
+.curricular-plan, .requirements{
+    padding: 20px;
+    background-color: #fff;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.curricular-plan h3, .requirements h3{
+    color: #003366;
+    margin-bottom: 15px;
+}
+.cycles {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+/*NUEVOS CAMBIOS*/
+/* Estilo para botones de ciclos */
+.cycle-btn-container {
+    display: flex;
+    justify-content: center; /* Centra los botones horizontalmente */
+    border-bottom: 2px solid #e0e0e0;
+    margin-bottom: 10px;
+}
+.cycle-btn-container p {
+    flex: 1;
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #6c757d; 
+    transition: color 0.3s ease, border-color 0.3s ease;
+  }
+ 
+  .cycle-btn-container p.inserted-active {
+    color: #007bff; 
+    border-bottom: 2px solid #007bff; 
+    margin-top: -5px;
+  }
+
+
+.sidebar-cycles {
+    display: flex;
+    border-bottom: 2px solid #e0e0e0;
+    margin-bottom: 10px;
+}
+.sidebar-btn {
+    cursor: pointer;
+    font-size: 20px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    
+}
+
+.cycle-btn {
+    display: flex; /* Cambiamos a flexbox para centrar el contenido */
+    align-items: center;
+    justify-content: center;
+    width: 10px; /* Ajusta el ancho según tus necesidades */
+    height: 40px; /* Ajusta la altura según tus necesidades */
+    margin: 0 px; 
+    cursor: pointer;
+    transition: background-color 0.4s ease;
+}
+.sidebar-cycles .sidebar-btn {
+    
+    background-color: #00509e;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    line-height: 24px;
+    
+}
+.inserted-active {
+    color: white;
+    font-weight: bold;
+}
+@media (max-width: 768px) {
+    .cycle-btn-container {
+        max-width: 100%;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+    }
+}
+@media (max-width: 480px) {
+    .cycle-btn-container {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        max-width: 300px;
+    }
+    .cycle-btn {
+        font-size: 12px;
+        padding: 5px 10px;
+    }
+}
+
+.cycle-btn img {
+    max-width: 100%; 
+    max-height: 100%; 
+  }
+
+.sidebar-cycles .sidebar-btn:hover {
+    background-color: #007bff;
+}
+
+.cycle-content {
+    display: none;
+}
+
+.cycle-content.active {
+    display: block;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+table th, table td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+table th {
+    background-color: #f4f4f4;
+}
+.scrollable-table {
+    overflow-x: auto;
+    max-height: 300px; /* Altura ajustable */
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+/* Selecciona todos los enlaces dentro de las celdas de la columna "Pre requisitos" */
+.table-container .scrollable-table table tbody tr td:last-child a {
+    color: #00509e;
+    text-decoration: none; /* Elimina el subrayado */
+    font-weight: bold; /* Hace el texto más resaltado */
+  }
+/* Estilo para botones active */
+.inserted-active {
+    color: #007bff;
+    border-bottom: 2px solid #007bff;
+}
+.table-container {
+    padding: 0 15px;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        text-align: center;
+    }
+    .summary .card, .credits-section {
+        flex: 1 1 100%;
+        max-width: none;
+    }
+    .cycles {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .cycle-btn {
+        min-width: 90px;
+    }
+}
+
+.requisito-container {
+    display: flex;
+    border-bottom: 2px solid #e0e0e0; 
+    margin-bottom: 10px;
+  }
+  
+  .requisito-container p {
+    flex: 1;
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #6c757d; 
+    transition: color 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .requisito-container p:hover {
+    color: #007bff; 
+  }
+  
+  .requisito-container p.inserted-active {
+    color: #007bff; 
+    border-bottom: 2px solid #007bff; 
+  }
+  
+  .requisito-content {
+    display: none; 
+  }
+  
+  .requisito-content.active {
+    display: block; 
+  }
+  /* Estilo específico para la sección de Egresado */
+#egresado.active {
+    display: block;
+    /* Otros estilos personalizados */
+  }
+
+  /* Estilos para la sección de Cursos Electivos */
+
+  
+ 
+  .creditos{
+    padding: 20px;
+    background-color: #fff;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.creditos{
+    color: black;
+    margin-bottom: 15px;
+}
+
+.cursos{
+    padding: 20px;
+    background-color: #fff;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.cursos{
+    color: black;
+    margin-bottom: 15px;
+}
+
+table {
+    width: 100%; /* La tabla ocupará todo el ancho disponible */
+    border-collapse: collapse;
+  }
+  
+  td {
+    max-width: 600px; /* Ancho máximo de las celdas */
+    word-wrap: break-word; /* Permite que el texto se ajuste a la celda */
+  }
